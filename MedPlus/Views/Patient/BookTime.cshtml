@@ -1,0 +1,72 @@
+﻿@{
+    ViewData["Title"] = "Schedule an Appointment";
+}
+
+@{
+    ViewBag.Title = "Calendar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>@ViewData["Title"]</h1>
+<div class="container mt-5">
+    <div id="calendar" class="border p-3"></div>
+    <hr/>
+    <div class="row-cols-3">
+        <h6 id="selectedDate">Selected date: </h6>
+        <label for="inputRole">Doctor:</label>
+        <select name="Doctor" id="inputDoc" class="form-control" style="width: 200px">
+            <option value="doctor">Dr 1</option>
+            <option value="doctor">Dr2</option>
+        </select>
+        <a href="@Url.Action("BookTime", "Patient")" class="btn btn-primary mt-3">Book Time</a>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        var calendar = $('#calendar');
+        var date = new Date();
+        var year = date.getFullYear();
+        var month = date.getMonth();
+
+        function renderCalendar(year, month) {
+            calendar.empty();
+            var firstDay = new Date(year, month).getDay();
+            var lastDate = new Date(year, month + 1, 0).getDate();
+            var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+            var table = $('<table class="table table-bordered"></table>');
+            var thead = $('<thead><tr></tr></thead>');
+            days.forEach(day => {
+                thead.find('tr').append('<th>' + day + '</th>');
+            });
+            table.append(thead);
+
+            var tbody = $('<tbody></tbody>');
+            var tr = $('<tr></tr>');
+            for (var i = 0; i < firstDay; i++) {
+                tr.append('<td></td>');
+            }
+
+            for (var date = 1; date <= lastDate; date++) {
+                if ((firstDay + date - 1) % 7 === 0 && date > 1) {
+                    tbody.append(tr);
+                    tr = $('<tr></tr>');
+                }
+                var td = $('<td class="clickable-date">' + date + '</td>');
+                tr.append(td);
+            }
+
+            tbody.append(tr);
+            table.append(tbody);
+            calendar.append(table);
+        }
+
+        $(document).on('click', '.clickable-date', function() {
+            var day = $(this).text();
+            var selDate = $('#selectedDate');
+            selDate.text('Selected date: ' + day + '/' + (month + 1) + '/' + year);
+        });
+
+        renderCalendar(year, month);
+    });
+</script>

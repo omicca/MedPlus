@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    DateTime curTime = DateTime.Now;
+}
+
+<div class="text-center">
+    <h3 class="display-4">Hello, @User.Identity?.Name</h3>
+    <p>Welcome to MedPlus!</p>
+    <hr class="hr hr-blurry" />
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <h3>Latest news</h3>
+            <div id="news-container">
+                <p>Here are some news: @curTime</p>
+                <p>Clinic is closed 19/05/24 due to Whitsun(Pinse): @curTime</p>
+            </div>
+        </div>
+        <div class="col-sm">
+            <h3>Some other filler content goes here, for example:</h3>
+            <p>Access appointments here: (some link)</p>
+            <p>Access prescriptions and order new medicine here: (some link)</p>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="container left">
+        <span class="ftext">Opening times:<br/>
+            Mon-Fri: 09:00 - 17:00<br/>
+            Sat-Sun: Closed
+        </span>
+    </div>
+    <div class="container middle">
+        <span class="ftext">
+            Contact Information<br/>
+            Email: <br/>
+            Phone:
+        </span>
+    </div>
+    <div class="container right">
+        <span class="ftext">&copy; 2024 - MedPlus</span>
+    </div>
+</footer>

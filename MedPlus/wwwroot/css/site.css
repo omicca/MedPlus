@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.navbar-brand img
+{
+  width: 214px;
+  height: 60px;
+}
+
+.bg-login {
+  background: rgb(60, 179, 113);
+}
+
+#main-border {
+  width: 350px;
+  height: 300px;
+  background: #1a1e21;
+  opacity: .6;
+}
+
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.inputdesign {
+  background-color: #333; 
+  color: white; 
+  padding: 5px;
+  border: none;
+  border-radius: 3px;
+  width: 200px; 
+  box-sizing: border-box;
+}
+
+#loginBtn {
+  margin-top: 200px;
+  
+}
+
+#rmbpass {
+  margin-right: 100px;
+}
+
+#logo {
+  height: 30px;
+  width: 107.5px;
+}
+
+.navbar-nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-nav .nav-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-nav .nav-item:not(:last-child)::after {
+  content: "|";
+  margin: 0 10px; /* Adjust spacing as needed */
+  color: #000; /* Adjust color as needed */
+}
+
+.footer {
+  width: 100%; /* Ensure the footer takes up the full width */
+  background-color: rgb(60, 179, 113); /* Darkish transparent color */
+  padding: 20px; /* Padding for spacing */
+  box-sizing: border-box; /* Include padding in the width calculation */
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Distribute space between the children */
+  align-items: center; /* Center align items vertically */
+  position: fixed; /* Fix the footer to the bottom of the viewport */
+  left: 0; /* Align the footer to the left */
+  bottom: 0; /* Align the footer to the bottom */
+}
+
+/* Container styling */
+.container {
+  flex: 1; /* Allow containers to grow and fill the space */
+}
+
+/* Left container specific styling */
+.container.left {
+  text-align: left; /* Align text to the left */
+}
+
+.container.middle {
+  text-align: center; /* Align text to the center */
+}
+
+/* Right container specific styling */
+.container.right {
+  text-align: right; /* Align text to the right */
+}
+
+/* Footer text styling */
+.ftext {
+  color: white; /* Text color */
+  margin: 0; /* Remove default margin */
+}
