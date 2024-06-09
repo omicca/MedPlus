@@ -1,4 +1,4 @@
-<h1>MedPlus</h1>
+<h1>MedPlus (WIP)</h1>
 
 A management site for doctors' clinics and related healthcare practices. <br>
 Allows three different user groups ("Patient", "Doctor", "Admin")
